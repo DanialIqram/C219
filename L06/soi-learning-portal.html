@@ -26,6 +26,10 @@
             color: #000 !important;
         }
 
+        .bookmark {
+            cursor: pointer;
+        }
+
         .icon {
             display: flex;
             border-radius: 50%;
@@ -52,8 +56,31 @@
         .card-img-top {
             height: 100%;
 }
+
         
     </style>
+    <script>
+        window.onload = function() {
+            let bookmarks = document.querySelectorAll(".bookmark");
+            bookmarks.forEach((item) => {
+                item.setAttribute("filled", "no");
+                item.addEventListener("click", () => {
+                    if (item.getAttribute("filled") == "yes") {
+                        console.log(1)
+                        item.src = "images/bookmark.svg";
+                        console.log(item.src);
+                        item.setAttribute("filled", "no");
+                    } else {
+                        console.log(2)
+                        item.src = "images/bookmark-filled.svg";
+                        console.log(item.src);
+                        item.setAttribute("filled", "yes");
+                    }
+                })
+            })
+
+        }
+    </script>
 </head>
 
 <body>
@@ -147,10 +174,10 @@
           
         </div>
     </div>
-    <div class="container-fluid mt-3 mb-3">
+    <div class="container-fluid mt-3 mb-5">
         <h2 class="text-center"><strong>Featured Courses</strong></h2>
-        <div class="row justify-content-center">
-            <div class="col-sm-3 mt-3">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-lg-3 mt-3">
                 <div class="card h-100">
                     <img src="images/html-css-course.jpg" class="card-img-top" alt="html-css">
                     <div class="card-body">
@@ -163,11 +190,11 @@
                     <div class="card-footer">
                         <img style="opacity: 0.5" src="images/lecturer.svg">
                         <span style="font-size: 12px;">Hannah Lim</span>
-                        <img style="opacity: 0.5; float: right" src="images/bookmark.svg">
+                        <img class="bookmark" style="opacity: 0.5; float: right" src="images/bookmark.svg">
                       </div>
                 </div>
             </div>
-                <div class="col-sm-3 mt-3">
+                <div class="col-md-4 col-sm-6 col-lg-3 mt-3">
                     <div class="card h-100">
                         <img src="images/ux-course.jpg" class="card-img-top" alt="html-css">
                         <div class="card-body">
@@ -180,12 +207,12 @@
                         <div class="card-footer">
                             <img style="opacity: 0.5" src="images/lecturer.svg">
                             <span style="font-size: 12px;">Julia Lee</span>
-                            <img style="opacity: 0.5; float: right" src="images/bookmark.svg">
+                            <img class="bookmark" style="opacity: 0.5; float: right" src="images/bookmark.svg">
                         </div>
                     </div>
                 </div>
 
-                <div class="col-sm-3 mt-3">
+                <div class="col-md-4 col-sm-6 col-lg-3 mt-3">
                     <div class="card h-100">
                         <img src="images/xcode.png" class="card-img-top" alt="html-css">
                         <div class="card-body">
@@ -198,11 +225,11 @@
                         <div class="card-footer">
                             <img style="opacity: 0.5" src="images/lecturer.svg">
                             <span style="font-size: 12px;">Ryan Low</span>
-                            <img style="opacity: 0.5; float: right" src="images/bookmark.svg">
+                            <img class="bookmark" style="opacity: 0.5; float: right" src="images/bookmark.svg">
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3 mt-3">
+                <div class="col-md-4 col-sm-6 col-lg-3 mt-3">
                     <div class="card h-100">
                         <img src="images/javascript-course.jpg" class="card-img-top" alt="html-css">
                         <div class="card-body">
@@ -215,7 +242,7 @@
                         <div class="card-footer">
                             <img style="opacity: 0.5" src="images/lecturer.svg">
                             <span style="font-size: 12px;">Azhar Kamar</span>
-                            <img style="opacity: 0.5; float: right" src="images/bookmark.svg">
+                            <img class="bookmark" style="opacity: 0.5; float: right" src="images/bookmark.svg">
                         </div>
                     </div>
                 </div>
