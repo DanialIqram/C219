@@ -9,18 +9,30 @@
 </head>
 
 <body>
-    <form id="myForm">
+    <form id="myForm" >
         <!-- Two text fields - Name and Email -->
         <input id="name" type="text" placeholder="Name" value=""><br><br>
-        <input id="email" type="email" placeholder="Email" value=""><br><br>
+        <input  id="email" type="email" placeholder="Email" value=""><br><br>
         <!-- Two radio buttons for Gender - Male and Female -->
+        <input checked  type="radio" id="male" name="gender" value="Male" />Male</br>
+        <input  type="radio" id="female" name="gender" value="Female"/>Female</br></br>
         <!-- Submit button -->
+        <input type="submit"></br>
     </form>
 
     <!-- Display form data -->
+    <div id="form-data"></div>
 
     <script>
         // JavaScript to get and display form data
+        document.getElementById("myForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+           let nameValue = document.getElementById("name").value;
+           let emailValue = document.getElementById("email").value;
+           let gender = document.querySelectorAll("input[name=gender]:checked")[0].value
+           let result = nameValue + "\n" + emailValue + "\n" + gender;
+           document.getElementById("form-data").innerText = result;
+        })
     </script>
 </body>
 

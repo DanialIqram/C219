@@ -24,6 +24,10 @@
             background: slateblue;
         }
 
+        .green {
+            background-color: green;
+        }
+
         .box {
             background: #ddd;
             width: 114px;
@@ -36,7 +40,7 @@
 
 <body>
     <!-- TODO 1: Add tooltip -->
-    <button type="button" class="btn btn-warning btn-lg mb-5">Button</button>
+    <button data-bs-toggle="tooltip" title="This is a button" type="button" class="btn btn-warning btn-lg mb-5">Button</button>
 
     <div class="circle mb-5"></div>
 
@@ -52,9 +56,16 @@
             $('[data-bs-toggle="tooltip"]').tooltip();
 
             // TODO 2: Add toggle function
+            $(".circle").click(function() {
+                $(this).toggleClass("green");
+            })
             
 
             // TODO 3: Clone square and append to grey box
+            let newSquare = $(".square").clone();
+            $(".btn-add").click(() => {
+                $(".box").append(newSquare.clone());
+            })
             
 
         });

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise 1</title>
+    <title>Exercise 2</title>
 </head>
 
 <body>
@@ -14,13 +14,45 @@
         <input id="name" type="text" placeholder="Name" value=""><br><br>
         <input id="email" type="email" placeholder="Email" value=""><br><br>
         <!-- Two radio buttons for Gender - Male and Female -->
+        <input checked type="radio" id="male" name="gender" value="Male" />Male</br>
+        <input  type="radio" id="female" name="gender" value="Female"/>Female</br></br>
         <!-- Submit button -->
+        <input type="submit"></br>
     </form>
+
+    <div id="form-data"></div>
 
     <!-- Display form data -->
     <script src="js/jquery.min.js"></script>
     <script>
         // JavaScript to get and display form data
+        $(document).ready(function() { 
+            $("#form-data").css({
+                "margin-top": "10px",
+                "font-family": "Arial",
+                "border": "3px solid black",
+                "background-color": "lightcoral",
+                "padding:": "10px",
+                "display": "none",
+                "white-space":"pre-wrap"
+            })
+
+            $("#form-data").mouseover(() => {
+                $("#form-data").slideUp();
+            })
+
+            $("#myForm").submit(function(e) { 
+                e.preventDefault();
+               let name = $("#name").val();
+               let email = $("#email").val();
+               let gender = $("[name=gender]:checked").val();
+
+               $("#form-data").html("You entered:\n\n"+name + "\n" + email + "\n" + gender);
+               $("#form-data").fadeIn();
+
+               return false;
+            })
+        })
     </script>
 </body>
 
