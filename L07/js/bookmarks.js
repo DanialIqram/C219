@@ -23,7 +23,7 @@ $(document).ready(() => {
         if (target) {
             $("#bookmark-" + target).attr("filled", "no");
             $("#bookmark-" + target).attr("src", "images/bookmark.svg");
-            $("#" + target).css("display", "none");
+            $("#" + target).slideUp();
         }
     })
 })
